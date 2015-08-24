@@ -12,16 +12,16 @@
 	}
 	Camera.prototype = {
 		get x()  {
-			return this.vector.x;
+			return this.vector.x - (this.dimension.width / 2) ;
 		},
 		set x(value)  {
-			this.vector.x = value;
+			this.vector.x = value + (this.dimension.width / 2);;
 		},
 		get y()  {
-			return this.vector.y;
+			return this.vector.y - (this.dimension.height / 2);
 		},
 		set y(value)  {
-			this.vector.y = value;
+			this.vector.y = value + (this.dimension.height / 2);;
 		},
 		get position() {
 			return this.vector;
@@ -31,8 +31,9 @@
 		}
 	}
 
-	function Scene(dimension,elements) {
-		this.dimension;
+	function Scene(vector,dimension,elements) {
+		this.vector = vector || new Vector();
+		this.dimension = dimension || new Dimension();
 		this.list = [];
 		if(true){
 

@@ -29,7 +29,6 @@
 		},
 		list : [],
 		update : function () {
-			//console.log(this.keypresses);
 			for (var index in this.keypresses) {
 				if(this.keypresses[index]){
 					var expo = 10
@@ -83,10 +82,10 @@
 			this.canvas = _.getElementById('canvas');
 			this.ctx = this.canvas.getContext('2d');
 			this.resize();
-			this.setScene(new Scene(new Dimension(1000,1000)));
-			this.currentCamera = new Camera(new Victor(),new Dimension(this.canvas.width,this.canvas.height));
-			for(var index = 50; index > 1; index--){
-				this.list.push(new Wall(new Victor(rnd(0,1000 / 10 -1)* 50,rnd(0,1000 / 10 -1)* 50),new Dimension(50,50),'green'));
+			this.setScene(new Scene(new Victor(),new Dimension(2000,2000)));
+			this.currentCamera = new Camera(new Victor(this.canvas.width/2,this.canvas.height/2),new Dimension(this.canvas.width,this.canvas.height));
+			for(var index = 20; index > 1; index--){
+				this.list.push(new Wall(new Victor(rnd(0,2000),rnd(0,2000)),new Dimension(50,50),'green'));
 			}
 			this.events.add('keydown','move',function (event) {
 				var index = this.directions.indexOf(event.keyCode);
